@@ -1,0 +1,41 @@
+{
+  "name": "record-sink",
+  "version": "0.0.0",
+  "description": "sink for records where the final processing and serialization happens",
+  "main": "lib/record-sink",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keis/record-sink.git"
+  },
+  "dependencies": {
+    "object-assign": "^3.0.0",
+    "readable-stream": "^1.0.33",
+    "standard-levels": "^1.0.0",
+    "through2": "^0.6.5"
+  },
+  "devDependencies": {
+    "billom": "^1.0.2",
+    "chai": "^2.3.0",
+    "coffee-script": "^1.9.1",
+    "coveralls": "^2.11.2",
+    "docco": "^0.7.0",
+    "eslint": "^0.20.0",
+    "istanbul": "^0.3.13",
+    "matcha": "^0.6.0",
+    "mocha": "^2.2.4",
+    "sinon": "^1.14.1"
+  },
+  "scripts": {
+    "lint": "eslint lib test && coffeelint test",
+    "test": "mocha --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
+    "coverage": "istanbul cover _mocha --report lcovonly -- --require test/bootstrap.js --compilers coffee:coffee-script/register --recursive test/unit",
+    "billom": "billom package.json \"$npm_package_name\" > package.html",
+    "docs": "docco lib/*.js"
+  },
+  "keywords": [
+    "sink",
+    "logging"
+  ],
+  "author": "David Keijser <keijser@gmail.com>",
+  "license": "ISC"
+}
