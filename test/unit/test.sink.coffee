@@ -1,7 +1,6 @@
-sinks = require '../../lib/record-sink'
 
 describe "Sink", ->
-  {Sink} = sinks
+  Sink = require '../../lib/record-sink'
 
   it "accepts level as symbolic name", ->
     sink = new Sink null, null, 'ERROR'

@@ -8,6 +8,7 @@
     "url": "https://github.com/keis/record-sink.git"
   },
   "dependencies": {
+    "dullstring": "^1.0.1",
     "object-assign": "^3.0.0",
     "readable-stream": "^1.0.33",
     "standard-levels": "^1.0.0",
