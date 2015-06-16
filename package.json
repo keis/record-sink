@@ -8,6 +8,7 @@
     "url": "https://github.com/keis/record-sink.git"
   },
   "dependencies": {
+    "dullstring": "^1.0.1",
     "object-assign": "^3.0.0",
     "readable-stream": "^1.0.33",
     "standard-levels": "^1.0.0",
@@ -23,7 +24,8 @@
     "istanbul": "^0.3.13",
     "matcha": "^0.6.0",
     "mocha": "^2.2.4",
-    "sinon": "^1.14.1"
+    "sinon": "^1.14.1",
+    "terminus": "^1.0.12"
   },
   "scripts": {
     "lint": "eslint lib test && coffeelint test",
