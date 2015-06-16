@@ -1,3 +1,12 @@
+terminus = require 'terminus'
+
+capture = ->
+  chunks = []
+  stream = terminus (chunk, enc, callback) ->
+    chunks.push chunk.toString()
+    callback()
+  {chunks, stream}
+
 
 describe "Sink", ->
   Sink = require '../../lib/record-sink'
@@ -17,3 +26,21 @@ describe "Sink", ->
       sink = new Sink null, null, 30
       sink.setLevel 'DEBUG'
       assert.equal sink.level, 10
+
+  describe "write", ->
+    it "transforms record before writing to stream", (done) ->
+      {chunks, stream} = capture()
+
+      record =
+        date: 'Date'
+        time: 'Time'
+        levelName:'INFO'
+        message: 'The message'
+
+      sink = new Sink stream, null, 'INFO'
+      sink.write record
+      setImmediate ->
+        assert.deepEqual chunks, [
+          '[Date Time] - INFO - The message'
+        ]
+        done()
