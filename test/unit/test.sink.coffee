@@ -16,6 +16,40 @@ describe "Sink", ->
 
     assert.equal sink.level, 40
 
+  it "transforms record before writing to stream", (done) ->
+    {chunks, stream} = capture()
+
+    record =
+      date: 'Date'
+      time: 'Time'
+      level: 20
+      levelName:'INFO'
+      message: 'The message'
+
+    sink = new Sink stream, null, 'INFO'
+    sink.write record
+    setImmediate ->
+      assert.deepEqual chunks, [
+        '[Date Time] - INFO - The message'
+      ]
+      done()
+
+  it "filters records below the configured level", (done) ->
+    {chunks, stream} = capture()
+
+    record =
+      date: 'Date'
+      time: 'Time'
+      level: 20
+      levelName:'INFO'
+      message: 'The message'
+
+    sink = new Sink stream, null, 'WARN'
+    sink.write record
+    setImmediate ->
+      assert.deepEqual chunks, []
+      done()
+
   describe "setLevel", ->
     it "updates the level of the sink", ->
       sink = new Sink null, null, 'ERROR'
@@ -26,21 +60,3 @@ describe "Sink", ->
       sink = new Sink null, null, 30
       sink.setLevel 'DEBUG'
       assert.equal sink.level, 10
-
-  describe "write", ->
-    it "transforms record before writing to stream", (done) ->
-      {chunks, stream} = capture()
-
-      record =
-        date: 'Date'
-        time: 'Time'
-        levelName:'INFO'
-        message: 'The message'
-
-      sink = new Sink stream, null, 'INFO'
-      sink.write record
-      setImmediate ->
-        assert.deepEqual chunks, [
-          '[Date Time] - INFO - The message'
-        ]
-        done()
