@@ -15,8 +15,8 @@
     "dullstring": "^1.0.1",
     "object-assign": "^3.0.0",
     "readable-stream": "^1.0.33",
-    "standard-levels": "^1.0.0",
-    "through2": "^0.6.5"
+    "sculpt": "^0.1.7",
+    "standard-levels": "^1.0.0"
   },
   "devDependencies": {
     "billom": "^1.0.2",
