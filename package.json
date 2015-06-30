@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "billom": "^1.0.2",
-    "chai": "^2.3.0",
+    "chai": "^3.0.0",
     "coffee-script": "^1.9.1",
     "coveralls": "^2.11.2",
     "docco": "^0.7.0",
