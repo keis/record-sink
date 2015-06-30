@@ -24,7 +24,7 @@
     "coffee-script": "^1.9.1",
     "coveralls": "^2.11.2",
     "docco": "^0.7.0",
-    "eslint": "^0.20.0",
+    "eslint": "^0.24.0",
     "istanbul": "^0.3.13",
     "matcha": "^0.6.0",
     "mocha": "^2.2.4",
